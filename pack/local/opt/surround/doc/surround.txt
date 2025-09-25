@@ -1,0 +1,65 @@
+*surround.txt*	Add, change and delete surroundings
+
+Local package (`packadd surround`), modelled on tpope/vim-surround. Every
+operation repeats with |.| without needing repeat.vim.
+
+==============================================================================
+MAPPINGS						*surround*
+
+ds{target}		Delete the surrounding {target}.	*ds*
+cs{target}{repl}	Change {target} to {repl}.		*cs*
+cS{target}{repl}	Same, with {repl} on lines of its own.	*cS*
+ys{motion}{repl}	Surround {motion} with {repl}.		*ys*
+yS{motion}{repl}	Same, on lines of their own, indented.	*yS*
+yss{repl}		Surround the current line (no indent).	*yss*
+ySS{repl}		Surround the current line, on own lines. *ySS*
+{Visual}S{repl}		Surround the selection.			*v_S*
+{Visual}gS{repl}	Same, with lines swapped (see below).	*v_gS*
+i_CTRL-G_s {repl}	Insert both delimiters, cursor between.	*i_CTRL-G_s*
+i_CTRL-G_S {repl}	Same, on lines of their own.		*i_CTRL-G_S*
+
+In linewise Visual mode S puts the body one indent deeper and gS doesn't; in
+characterwise Visual mode gS puts the delimiters on lines of their own.
+
+A count before ds/cs, or digits after it (ds2( ), picks an outer pair.
+
+==============================================================================
+TARGETS							*surround-targets*
+
+( ) b		parentheses	( and the other openers also remove
+[ ] r		brackets	the whitespace just inside the pair
+{ } B		braces
+< > a		angle brackets
+" ' `		quotes
+t		an HTML/XML tag
+other punctuation: the nearest pair of it on the cursor line
+
+When the delimiters sit on lines of their own (a block), ds leaves the body
+lines in place and cs keeps the block shape.
+
+==============================================================================
+REPLACEMENTS						*surround-replacements*
+
+) ] } > b r B a	the pair, no spaces
+( [ {		the pair with a space inside
+t < T		prompt for a tag; "a/" makes <a />. When changing a tag,
+		its attributes are kept unless the name ends in ">".
+		T suggests the last removed tag.
+f F		prompt for a function name: name(…) / name( … )
+other punctuation: itself on both sides
+
+Custom replacements: *b:surround_{nr}* / *g:surround_{nr}*, where {nr} is the
+character code and "\r" marks where the text goes:
+>
+	let b:surround_45 = "<% \r %>"	" ysiw- → <% word %>
+<
+==============================================================================
+OPTIONS							*surround-options*
+
+*g:surround_no_mappings*	Set to skip all default mappings; map the
+			<Plug>(surround-*) ones yourself.
+*g:surround_no_insert_mappings*	Skip only the insert-mode ones.
+*g:surround_indent*	0 to never reindent with |=| after linewise edits
+			(b:surround_indent per buffer). Default 1.
+
+ vim:tw=78:ts=8:noet:ft=help:norl:

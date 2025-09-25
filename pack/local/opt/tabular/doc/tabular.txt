@@ -1,0 +1,52 @@
+*tabular.txt*	Align text on a delimiter pattern
+
+Local package (`packadd tabular`), modelled on godlygeek/tabular.
+
+==============================================================================
+COMMANDS						*tabular*
+
+:[range]Tabularize /{pattern}[/{format}]		*:Tabularize*
+	Align the lines in [range] on {pattern}. Without a range, aligns the
+	block of adjacent lines around the cursor that match {pattern}.
+	{pattern} may itself contain "/"; only a trailing "/{format}" is
+	taken as the format.
+
+:[range]Tabularize {name}
+	Use a named pattern, see |tabular-patterns|.
+
+:[range]Tabularize
+	Repeat the last :Tabularize arguments.
+
+:[range]GTabularize ...					*:GTabularize*
+	Like :Tabularize, but lines that don't match are left alone and don't
+	count towards column widths. The range defaults to the whole buffer.
+
+==============================================================================
+FORMAT							*tabular-format*
+
+A format is one or more elements of an alignment letter and a padding:
+	l{n}	left-align, then {n} spaces
+	r{n}	right-align, then {n} spaces
+	c{n}	center, then {n} spaces
+Elements apply in turn to text, delimiter, text, delimiter... and wrap
+around. The default is "l1" (|g:tabular_default_format|).
+
+	:Tabularize /=		a   = 1	~
+				bbb = 2	~
+	:Tabularize /:/r0l1	   a: 1	~
+				 bbb: 2	~
+
+==============================================================================
+NAMED PATTERNS						*tabular-patterns*
+
+Built in: assignment, two_spaces, multiple_spaces, spaces, ternary_operator,
+cpp_io, pascal_assign, trailing_c_comments.
+
+Add your own in *g:tabular_patterns* or *b:tabular_patterns* (buffer ones win):
+>
+	let g:tabular_patterns = {'colon': '/:/l0l1'}
+<
+						*g:tabular_default_format*
+Format used when none is given. Default "l1".
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
