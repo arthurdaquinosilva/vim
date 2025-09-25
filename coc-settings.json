@@ -1,0 +1,71 @@
+{
+  "suggest.noselect": false,
+  "suggest.enablePreselect": false,
+  "suggest.virtualText": true,
+  "suggest.floatConfig": {
+    "border": true,
+
+    "rounded": false
+  },
+
+  "coc.preferences.formatOnSave": true,
+
+  "diagnostic.enable": true,
+  "diagnostic.level": "hint",
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.virtualText": false,
+
+  "hover.target": "float",
+  "signature.target": "float",
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": false
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": false
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+
+    "rounded": false
+  },
+
+  "list.indicator": ">",
+  "list.selectedSignText": "*",
+
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "eslint.autoFixOnSave": true,
+  "prettier.formatterPriority": 1,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.jdt.ls.vmargs": "-javaagent:/Users/arthurdaquino/lombok-1.18.30.jar",
+  "java.signatureHelp.enabled": true,
+  "java.contentProvider.preferred": "fernflower",
+  "java.completion.enabled": true,
+  "java.completion.guessMethodArguments": true,
+  "java.completion.favoriteStaticMembers": [
+    "org.junit.Assert.*",
+    "org.junit.jupiter.api.Assertions.*"
+  ],
+  "java.format.enabled": true,
+  "java.format.settings.url": "",
+  "java.format.settings.profile": "",
+  "java.imports.gradle.wrapper.checksums": [],
+  "java.maven.downloadSources": true,
+  "java.maven.updateSnapshots": true,
+  "java.eclipse.downloadSources": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.trace.server": "verbose"
+}
