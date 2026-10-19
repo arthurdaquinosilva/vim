@@ -6,3 +6,5 @@ undodir
 images
 .aider*
 doc/tags
+pack/local/test/results.tap
+pack/local/opt/*/doc/tags

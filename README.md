@@ -1,6 +1,6 @@
 # Vim configuration
 
-Personal Vim setup. Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug); completion is [coc.nvim](https://github.com/neoclide/coc.nvim); colors are [tokyonight](https://github.com/ghifarit53/tokyonight-vim) with custom transparent overrides.
+Personal Vim setup. Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug); completion is [coc.nvim](https://github.com/neoclide/coc.nvim); colors are the local `pitch` scheme (`colors/pitch.vim`).
 
 ## Layout
 
@@ -28,6 +28,9 @@ Personal Vim setup. Plugin manager is [vim-plug](https://github.com/junegunn/vim
 ├── after/ftplugin/                 Filetype overrides (JS/TS/PHP)
 ├── autoload/                       plug.vim lives here
 ├── plugged/                        vim-plug installs (gitignored)
+├── pack/local/opt/                 Own packages, loaded with packadd! in settings.vim
+│   ├── tabular/                    :Tabularize — align columns
+│   └── surround/                   ds / cs / ys — surroundings
 ├── snippets/, UltiSnips/           Snippet definitions
 ├── spell/                          Custom spell files
 ├── doc/                            Plugin help (build artifact: doc/tags is gitignored)
@@ -74,3 +77,4 @@ Full set in `config/mappings.vim`.
 - **Key bindings** go in `config/mappings.vim`.
 - **Per-plugin tweaks** get their own `config/plugins/<plugin>.vim`. The `_manager.vim` file is special — it holds the `Plug` list and bootstraps vim-plug; it's loaded explicitly first.
 - **Filetype-specific overrides** live in `after/ftplugin/<filetype>.vim`.
+- **Own packages** live in `pack/local/opt/<name>/` (plugin/, autoload/, doc/, test/) and are enabled with `packadd!` in `config/settings.vim`. Run their tests with `make -C pack/local test`.

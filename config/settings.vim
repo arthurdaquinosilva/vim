@@ -2,6 +2,18 @@
 
 syntax on
 
+" ── Built-in optional packages ───────────────────────────────────────────────
+" comment: gc/gcc to toggle comments (replaces tcomment_vim).
+" hlyank:  briefly highlight yanked text (replaces vim-highlightedyank).
+packadd! comment
+packadd! hlyank
+
+" ── Local packages (pack/local/opt) ──────────────────────────────────────────
+" tabular:  :Tabularize /pattern/format to align columns.
+" surround: ds/cs/ys to edit surrounding pairs, tags and quotes.
+packadd! tabular
+packadd! surround
+
 " ── Syntax highlighting in long files ────────────────────────────────────────
 " Syntax files only scan a few lines back to decide where highlighting state
 " begins (html.vim uses minlines=10), so jumping deep into long files — e.g.

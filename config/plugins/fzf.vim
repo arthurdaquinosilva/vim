@@ -4,35 +4,9 @@
 " and mappings below don't try to call fzf#… functions when it isn't loaded.
 if !executable('rg') | finish | endif
 
-" ── Highlights ───────────────────────────────────────────────────────────────
-" Transparent FZF backgrounds (Tokyo Night).
-
-highlight FzfBg     guibg=NONE ctermbg=NONE
-highlight FzfBgPlus guibg=NONE ctermbg=NONE
-
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'FzfBg'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'FzfBgPlus'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Override specific highlights to keep them transparent after startup.
-augroup fzf_transparent
-    autocmd!
-    autocmd VimEnter * highlight CursorLine   guibg=NONE ctermbg=NONE
-    autocmd VimEnter * highlight CursorColumn guibg=NONE ctermbg=NONE
-    autocmd VimEnter * highlight FzfBg        guibg=NONE ctermbg=NONE
-    autocmd VimEnter * highlight FzfBgPlus    guibg=NONE ctermbg=NONE
-augroup END
+" ── Colors ───────────────────────────────────────────────────────────────────
+" No g:fzf_colors: fzf.vim then uses the --color flags in $FZF_DEFAULT_OPTS
+" (shell/macos/zsh_files/tools.zsh), so pickers look the same in and out of Vim.
 
 " ── Commands ─────────────────────────────────────────────────────────────────
 

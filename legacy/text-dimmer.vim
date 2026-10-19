@@ -21,7 +21,7 @@ function! s:ClearWindowMatches()
     endfor
 endfunction
 
-highlight DimmedText ctermfg=8 guifg=#1d1e17
+highlight DimmedText ctermfg=239 guifg=#3b4261
 
 " ── Buffer state ──────────────────────────────────────────────────────────────
 

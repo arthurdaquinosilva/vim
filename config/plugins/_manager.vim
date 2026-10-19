@@ -18,7 +18,6 @@ endif
 " UI
 Plug 'mhinz/vim-startify'
 Plug 'pacha/vem-tabline'
-Plug 'ghifarit53/tokyonight-vim'
 
 " File navigation
 Plug 'preservim/nerdtree'
@@ -33,15 +32,11 @@ endif
 
 " Editing
 Plug 'jiangmiao/auto-pairs'
-Plug 'godlygeek/tabular'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-surround'
 Plug 'matze/vim-move'
 Plug 'mg979/vim-visual-multi'
 
 " Motion / visual aids
 Plug 'vimoxide/vim-quickscope'
-Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'kshenoy/vim-signature'
 Plug 'arthurdaquinosilva/vim-spotlight'
